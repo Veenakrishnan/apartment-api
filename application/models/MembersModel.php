@@ -12,4 +12,13 @@ class MembersModel extends CI_Model{
          return $query->result_array();
     }
 
+    public function view($id){
+        $this->db->select('*');
+        $this->db->from('registration');
+        $this->db->where("id",$id);
+        $query=$this->db->get();
+        $profile=$query->row();
+        return $profile;
+    }
+
 }

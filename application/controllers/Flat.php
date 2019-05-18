@@ -49,9 +49,9 @@ class Flat extends MY_Controller{
                 $this->load->model('FlatModel');
                 $return = $this->FlatModel->insert_data($data);
                 if ($return == true) {
-                    echo $this->success("Data Inserted...");
+                    echo $this->success(array("message" =>"Data Inserted..."));
                 } else {
-                    echo $this->failure("Insertion failed..");
+                    echo $this->failure(array("message" =>"Insertion failed.."));
                 } 
             }
             else{
@@ -66,9 +66,9 @@ class Flat extends MY_Controller{
         $data = $this->FlatModel->available_flat();
         if ($data) {       
             //echo json_encode($data);
-            echo $this->success("Flat available...");
+            echo $this->success(array("message" =>"Flat available..."));
         } else {
-            echo $this->failure("No Data Found..");
+            echo $this->failure(array("message" =>"No Data Found.."));
         } 
     }
 
@@ -77,9 +77,9 @@ class Flat extends MY_Controller{
         $data['flatDetails'] = $this->FlatModel->filled_flat();
         if ($data['flatDetails']) {
             echo json_encode($data);
-            echo $this->success("Flat are filled...");
+            echo $this->success(array("message" =>"Flat are filled..."));
         } else {
-            echo $this->failure("No Data Found..");
+            echo $this->failure(array("message" =>"No Data Found.."));
         } 
     }
 
@@ -88,9 +88,9 @@ class Flat extends MY_Controller{
         $data['flatDetails'] = $this->FlatModel->total_flat();
         if ($data['flatDetails']) {
             echo json_encode($data);
-            echo $this->success("Flat details...");
+            echo $this->success(array("message" =>"Flat details..."));
         } else {
-            echo $this->failure("No Data Found..");
+            echo $this->failure(array("message" =>"No Data Found.."));
         } 
     }
 
@@ -103,7 +103,7 @@ class Flat extends MY_Controller{
            // var_dump($result["id"]);
             echo $this->success($result);
         } else {
-            echo $this->failure("No Data Found..");
+            echo $this->failure(array("message" =>"No Data Found.."));
         } 
     }
 
@@ -151,13 +151,13 @@ class Flat extends MY_Controller{
                 $this->db->where("flat_no",$flat_id);
                 $update = $this->db->update("flat_details",$postData);
                 if($update)
-                    echo $this->success("Flat booked successfully...");
+                    echo $this->success(array("message" =>"Flat booked successfully..."));
                 }
                 else{
-                    echo $this->failure("Insertion failed...");
+                    echo $this->failure(array("message" =>"Insertion failed..."));
                 }
             }
-            echo $this->failure("error...");
+            echo $this->failure(array("message" =>"error..."));
         }
     }
 
@@ -181,10 +181,10 @@ class Flat extends MY_Controller{
                 if($result){
                     var_dump($data);
                     echo json_encode($data);
-                    echo $this->success("Paid rent successfully...");
+                    echo $this->success(array("message" =>"Paid rent successfully..."));
                 }
                 else{
-                    echo $this->failure("Payment failed...");
+                    echo $this->failure(array("message" =>"Payment failed..."));
                 }
         }
     }
@@ -214,7 +214,7 @@ class Flat extends MY_Controller{
             if ($update == true){
                 echo $this->success($update);
             } else {
-                echo $this->failure("No Data Found..");
+                echo $this->failure(array("message" =>"No Data Found.."));
             }
         }
     }

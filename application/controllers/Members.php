@@ -11,9 +11,9 @@ class Members extends MY_Controller{
         $data['guestDetails'] = $this->MembersModel->member_request();
         if ($data['guestDetails']) {
             echo json_encode($data);
-            echo $this->success("Member request details...");
+            echo $this->success(array("message" =>"Member request details..."));
         } else {
-            echo $this->failure("No member requests..");
+            echo $this->failure(array("message" =>"No member requests.."));
         } 
     }
 
@@ -27,11 +27,11 @@ class Members extends MY_Controller{
             $data = array();
             $this->db->where("id",$id);
             $update = $this->db->update("registration",$postData);
-            var_dump($update);
+            //var_dump($update);
         if ($update == true){
-            echo $this->success("Member Request Accepted...");
+            echo $this->success(array("message" =>"Member Request Accepted..."));
         } else {
-            echo $this->failure("No Data Found..");
+            echo $this->failure(array("message" =>"No Data Found.."));
         }
     }
 
@@ -68,9 +68,9 @@ class Members extends MY_Controller{
             $update = $this->db->update("registration",$postData);
             var_dump($update);
             if ($update == true){
-                echo $this->success("Profile updated...");
+                echo $this->success(array("message" =>"Profile updated..."));
             } else {
-                echo $this->failure("Updation Failed..");
+                echo $this->failure(array("message" =>"Updation Failed.."));
             }
         }       
     }

@@ -33,30 +33,17 @@ class MY_Controller extends CI_Controller{
 		  return json_encode($response);
     }
 
-    public function sign($user){
-       /* $key = PRIVATE_KEY;
-        $token = array(
-        "iss" => site_url(),
-        "sub" => "auth",
-        "iat" => time(),
-        "exp" => time() + (7 * 24 * 60 * 60), // 7 days; 24 hours; 60 mins; 60 secs
-        "userId" => $user->id,
-        "role" => $user->status
-        );
-        return JWT::encode($token, $key, 'RS256');
-        */
-        
+    public function sign($user){       
         $token_data['iss']=site_url();
         $token_data['sub']="auth";
         $token_data['timestamp']=time();
         $token_data['exp']=time() + (7 * 24 * 60 * 60); // 7 days; 24 hours; 60 mins; 60 secs
-        $token_data['id']=$user->id;
+        $token_data['id']= $user->id;
         $jwtToken=$this->objOfJWT->GenerateToken($token_data);
-        return json_encode(array('Token'=>$jwtToken));      
+        return array("token" => $jwtToken);      
     }
 
     public function verify($received_token){
-      //var_dump($received_token);
        // $received_token=$this->input->request_headers('Authorization');
         try{
           $jwtData=$this->objOfJWT->DecodeToken($received_token);

@@ -34,6 +34,7 @@ class Members extends MY_Controller{
             echo $this->failure("No Data Found..");
         }
     }
+
     public function varify(){ 
         $token=$this->input->request_headers();   
         $user = $this->verify($token['Authorization']);
@@ -71,9 +72,34 @@ class Members extends MY_Controller{
             } else {
                 echo $this->failure("Updation Failed..");
             }
-        }
-        
+        }       
     }
+
+    public function change_password()
+	{
+		if($this->isPost()){
+			$old=$this->request('old_pass');
+			$new=$this->request('new_pass');
+            $confirm=$this->request('confirm_pass');
+            
+            $old_pass= password_hash($old, PASSWORD_BCRYPT);
+            $new_pass=password_hash($new, PASSWORD_BCRYPT);
+            $confirm_pass=password_hash($confirm, PASSWORD_BCRYPT);
+            
+			$id=$this->varify();
+			$que=$this->db->query("select * from registration where id='$id'");
+			$row=$que->row();
+			if((!strcmp($old_pass, $password)) && (!strcmp($new_pass, $confirm_pass))){
+                $this->load->model('MembersModel');
+				$this->MembersModel->change_pass($id,$new_pass);
+				echo "Password changed successfully !";
+				}
+			    else{
+					echo "Invalid";
+				}
+		}
+		$this->load->view('change_pass');	
+	}
 }
 
 

@@ -186,16 +186,16 @@ class Flat extends MY_Controller{
                 else{
                     echo $this->failure("Payment failed...");
                 }
-            }
         }
+    }
 
     public function edit($id){       
         if($this->isPost()){
         //get post data
-              $amenities=$this->request("amenities");
-              $rent=$this->request('rent');
-              $advance=$this->request('advance');
-              $status=$this->request('status');
+            $amenities=$this->request("amenities");
+            $rent=$this->request('rent');
+            $advance=$this->request('advance');
+            $status=$this->request('status');
        
             $postData = array(
                 "amenities"=>$amenities,
@@ -211,11 +211,11 @@ class Flat extends MY_Controller{
             $update = $this->db->update("flat_details",$postData);
             var_dump($update);
 
-            if ($update == true) {
+            if ($update == true){
                 echo $this->success($update);
             } else {
                 echo $this->failure("No Data Found..");
             }
         }
-     }
+    }
 }

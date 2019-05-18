@@ -7,8 +7,6 @@ class MembersModel extends CI_Model{
          $this->db->from('registration');
          $this->db->where("status","0");
          $query=$this->db->get();
-         
-        // $query->result_array();
          return $query->result_array();
     }
 
@@ -20,5 +18,15 @@ class MembersModel extends CI_Model{
         $profile=$query->row();
         return $profile;
     }
+
+    function fetch_pass($id)
+	{
+	$fetch_pass=$this->db->query("select * from registration where id='$id'");
+	$res=$fetch_pass->result();
+	}
+	function change_pass($id,$new_pass)
+	{
+	$update_pass=$this->db->query("UPDATE registration set password='$new_pass'  where id='$id'");
+	}
 
 }

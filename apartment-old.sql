@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2019 at 12:22 PM
+-- Generation Time: May 13, 2019 at 01:04 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.1.26
 
@@ -131,17 +131,16 @@ CREATE TABLE `registration` (
   `email` varchar(100) NOT NULL,
   `password` varchar(200) NOT NULL,
   `address` varchar(250) NOT NULL,
-  `code` varchar(200) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '0'
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `registration`
 --
 
-INSERT INTO `registration` (`id`, `name`, `mobile`, `email`, `password`, `address`, `code`, `status`) VALUES
-(1, 'veena', '9995142551', 'veena.amodha@gmail.com', '$2y$10$zF.16nXf1Tw7ChA6.Anhw.miZmW0KbsCYJQbATAHxMjP.0smYN7ma', 'address', 'da6e9e5fecd6856837eb1596ee4a8cdd', 1),
-(2, 'veena', '9995542551', 'veenabalakrishnan6@gmail.com', '$2y$10$ONhr8Yi5EUNJv9YEMpA8ZuL.hb9AAJ.VZvyiz34np7BFyyTiSIsI.', 'address', 'd8fc1f31c557d031ba2e395ec335a2f4', 0);
+INSERT INTO `registration` (`id`, `name`, `mobile`, `email`, `password`, `address`, `status`) VALUES
+(1, 'veena', '9995164972', 'veena@gmail.com', '$2y$10$razBth0PPjqNQ.4aDTlnA.MLh1TNhDOve515WHHpvG5xJyOh.AzhW', 'address', 1),
+(2, 'ammu', '9985164972', 'ammu@gmail.com', '$2y$10$I7gaiJ3ci4K3XNsyvOM4DOKlAf2T298zKsFpRltjUsM/3Xuv4.WGa', 'address', 1);
 
 -- --------------------------------------------------------
 
@@ -213,13 +212,13 @@ ALTER TABLE `rent`
 -- AUTO_INCREMENT for table `amenities`
 --
 ALTER TABLE `amenities`
-  MODIFY `amenities_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `amenities_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `apartment`
 --
 ALTER TABLE `apartment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `booking`

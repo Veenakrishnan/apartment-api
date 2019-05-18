@@ -18,11 +18,11 @@ class Members extends MY_Controller{
     }
 
     public function confirm_member($id){
-        if($this->isPost()){
-            $status=$this->request('status');
-        }
+       // if($this->isPost()){
+         //   $status=$this->request('status');
+       // }
             $postData = array(
-                "status"=>$status
+                "status"=>"1"
             );
             $data = array();
             $this->db->where("id",$id);
@@ -75,7 +75,7 @@ class Members extends MY_Controller{
         }       
     }
 
-    public function change_password()
+  /*  public function change_password()
 	{
 		if($this->isPost()){
 			$old=$this->request('old_pass');
@@ -99,7 +99,7 @@ class Members extends MY_Controller{
 				}
 		}
 		$this->load->view('change_pass');	
-	}
+	}*/
 }
 
 

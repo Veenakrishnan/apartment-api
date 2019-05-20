@@ -157,7 +157,7 @@ class Flat extends MY_Controller{
                     echo $this->failure("Insertion failed...");
                 }
             }
-            echo $this->failure("error...");
+            echo $this->failure("Error...");
         }
     }
 

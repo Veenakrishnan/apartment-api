@@ -167,7 +167,11 @@ class Flat extends MY_Controller{
                     echo $this->failure(array("message" =>"Insertion failed..."));
                 }
             }
+<<<<<<< HEAD
             echo $this->failure(array("message" =>"error..."));
+=======
+            echo $this->failure("Error...");
+>>>>>>> sql
         }
     }
 

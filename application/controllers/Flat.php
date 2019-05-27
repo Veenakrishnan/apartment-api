@@ -18,7 +18,7 @@ class Flat extends MY_Controller{
             $rent = $this->request('rent');
             $advance = $this->request('advance');
             $status = $this->request('status');
-
+            
             $data = array(
                 "flat_no" => $flat_no,
                 "block_no" => $block_no,
@@ -121,12 +121,22 @@ class Flat extends MY_Controller{
             $member_id=$this->varify();
             $this->load->model('FlatModel');
             $advance_payment=$this->FlatModel->rent_details($flat_id);
-            var_dump($advance_payment);
+            //var_dump($advance_payment);
+
+
+            // One month from today
+		    $date = date('Y-m-d', strtotime('+1 month'));
+    	    $t=date('y-m-d');
+		
+		    // One month from a specific date
+		    $date = date('Y-m-d', strtotime('+1 month', strtotime($t)));
+            var_dump($date);
             $data=array(
                 "member_id"=>$member_id,
                 "flat_id"=>$flat_id,
                 "booking_start_date"=>date('y-m-d'),
                 "booking_end_date"=>$booking_end_date,
+                "rent_date"=>$date,
                 "advance_payment"=>$advance_payment->advance,
                 "booking_status"=>$status
             );

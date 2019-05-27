@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2019 at 02:10 PM
+-- Generation Time: May 27, 2019 at 06:48 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.1.26
 
@@ -94,7 +94,6 @@ CREATE TABLE `booking` (
   `member_id` int(11) NOT NULL,
   `flat_id` int(11) NOT NULL,
   `booking_start_date` date NOT NULL,
-  `rent_date` date DEFAULT NULL,
   `booking_end_date` date NOT NULL,
   `advance_payment` varchar(6) NOT NULL,
   `booking_status` int(11) NOT NULL
@@ -104,8 +103,9 @@ CREATE TABLE `booking` (
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`booking_id`, `member_id`, `flat_id`, `booking_start_date`, `rent_date`, `booking_end_date`, `advance_payment`, `booking_status`) VALUES
-(1, 1, 101, '2019-02-02', NULL, '2019-09-09', '100000', 1);
+INSERT INTO `booking` (`booking_id`, `member_id`, `flat_id`, `booking_start_date`, `booking_end_date`, `advance_payment`, `booking_status`) VALUES
+(1, 1, 101, '2019-02-02', '2019-09-09', '100000', 1),
+(5, 2, 102, '2019-05-13', '2019-06-06', '100000', 1);
 
 -- --------------------------------------------------------
 

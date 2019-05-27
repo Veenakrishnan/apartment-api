@@ -51,5 +51,17 @@ class BillGeneration extends MY_Controller{
 			$this->pdf->render();
 			$this->pdf->stream("".$id.".pdf", array("Attachment"=>0));
 		}
-	} 
+    } 
+    
+    public function paymentDate(){
+        $this->load->model('BillGenerator');
+       $date = $this->BillGenerator->nextPaymentDate();
+       if($date){
+        echo $this->success($date);
+       }
+       else{
+        echo $this->success("Insertion not Completed...");
+       }
+
+    }
 }

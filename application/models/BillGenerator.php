@@ -33,7 +33,6 @@ class BillGenerator extends CI_Model{
 				<td width="100%">
 					<p>Bill ID : '.$row->bill_id.'<label style="margin-left:75%">Block No :'.$row->block_no.'</label></p>
 					<p style="margin-left:84%">Flat No : '.$row->flat_no.'</p>
-					
 					<p style="text-align:center"><b>'.$row->apartment_name.'</b></p><hr>
 					<p><b>'.$row->adrs.'<label style="margin-left:80%">Member Details</label></b></p>
 					<p style="margin-left:82%" >Member Id:'.$row->member_id.'</p>
@@ -42,7 +41,6 @@ class BillGenerator extends CI_Model{
 					<p style="text-align:center"><b>'.date('M-Y').'</b></p><hr>
 					<p><b>Rent : </b><label style="margin-left:80%">'.$row->due_amount.'</label></p><hr>
 					<p style="margin-left:47%"><b>Total : </b><label style="margin-left:61%">'.$row->due_amount.'</label></p><hr>
-
 					<p><b>Paid Date : </b> '.$row->paid_date.' </p>
 				</td>
 			</tr>';
@@ -53,5 +51,16 @@ class BillGenerator extends CI_Model{
 		</tr>';
 		$output .= '</table>';
 		return $output;
+	}
+
+	public function nextPaymentDate(){
+		
+		// One month from today
+		$date = date('Y-m-d', strtotime('+1 month'));
+    	$t='2025-01-02';
+		
+		// One month from a specific date
+		$date = date('Y-m-d', strtotime('+1 month', strtotime($t)));
+		return $date;
 	}
 }

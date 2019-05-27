@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2019 at 06:48 AM
+-- Generation Time: May 18, 2019 at 12:22 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.1.26
 
@@ -54,34 +54,15 @@ CREATE TABLE `apartment` (
   `apartment_name` varchar(200) NOT NULL,
   `blocks` int(11) NOT NULL,
   `flat_count` int(11) NOT NULL,
-  `adrs` varchar(300) NOT NULL
+  `address` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `apartment`
 --
 
-INSERT INTO `apartment` (`id`, `apartment_name`, `blocks`, `flat_count`, `adrs`) VALUES
+INSERT INTO `apartment` (`id`, `apartment_name`, `blocks`, `flat_count`, `address`) VALUES
 (1, 'Apartment', 10, 100, 'Apartment Address');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blog`
---
-
-CREATE TABLE `blog` (
-  `name` varchar(255) DEFAULT NULL,
-  `description` longtext,
-  `created_date` varchar(12) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `blog`
---
-
-INSERT INTO `blog` (`name`, `description`, `created_date`) VALUES
-('TechArise Team', 'Demo text', '1524380830');
 
 -- --------------------------------------------------------
 
@@ -115,7 +96,6 @@ INSERT INTO `booking` (`booking_id`, `member_id`, `flat_id`, `booking_start_date
 
 CREATE TABLE `flat_details` (
   `id` int(11) NOT NULL,
-  `apartment_id` int(11) NOT NULL DEFAULT '1',
   `flat_no` varchar(10) NOT NULL,
   `block_no` varchar(10) NOT NULL,
   `bedroom_count` int(11) NOT NULL,
@@ -131,12 +111,12 @@ CREATE TABLE `flat_details` (
 -- Dumping data for table `flat_details`
 --
 
-INSERT INTO `flat_details` (`id`, `apartment_id`, `flat_no`, `block_no`, `bedroom_count`, `bathroom_count`, `room_count`, `amenities`, `rent`, `advance`, `status`) VALUES
-(1, 1, '105', '5', 3, 3, 8, 'Power', '5000', '150000', 0),
-(6, 1, '102', '5', 5, 2, 7, 'TV,AC', '50000', '100000', 1),
-(7, 1, '103', '5', 5, 2, 7, 'TV', '2500', '100000', 0),
-(8, 1, '104', '5', 5, 2, 7, 'TV', '2500', '100000', 1),
-(9, 1, '101', '5', 5, 2, 7, 'TV', '2500', '100000', 0);
+INSERT INTO `flat_details` (`id`, `flat_no`, `block_no`, `bedroom_count`, `bathroom_count`, `room_count`, `amenities`, `rent`, `advance`, `status`) VALUES
+(1, '105', '5', 3, 3, 8, 'Power', '5000', '150000', 0),
+(6, '102', '5', 5, 2, 7, 'TV,AC', '50000', '100000', 1),
+(7, '103', '5', 5, 2, 7, 'TV', '2500', '100000', 0),
+(8, '104', '5', 5, 2, 7, 'TV', '2500', '100000', 1),
+(9, '101', '5', 5, 2, 7, 'TV', '2500', '100000', 0);
 
 -- --------------------------------------------------------
 
@@ -161,7 +141,7 @@ CREATE TABLE `registration` (
 
 INSERT INTO `registration` (`id`, `name`, `mobile`, `email`, `password`, `address`, `code`, `status`) VALUES
 (1, 'veena', '9995142551', 'veena.amodha@gmail.com', '$2y$10$zF.16nXf1Tw7ChA6.Anhw.miZmW0KbsCYJQbATAHxMjP.0smYN7ma', 'address', 'da6e9e5fecd6856837eb1596ee4a8cdd', 1),
-(2, 'veenabalakrishnan', '9995542551', 'veenabalakrishnan6@gmail.com', '$2y$10$ONhr8Yi5EUNJv9YEMpA8ZuL.hb9AAJ.VZvyiz34np7BFyyTiSIsI.', 'address', 'd8fc1f31c557d031ba2e395ec335a2f4', 0);
+(2, 'veena', '9995542551', 'veenabalakrishnan6@gmail.com', '$2y$10$ONhr8Yi5EUNJv9YEMpA8ZuL.hb9AAJ.VZvyiz34np7BFyyTiSIsI.', 'address', 'd8fc1f31c557d031ba2e395ec335a2f4', 0);
 
 -- --------------------------------------------------------
 

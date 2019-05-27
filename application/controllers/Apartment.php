@@ -11,13 +11,13 @@ class Apartment extends MY_Controller{
             $apartment_name = $this->request('apartment_name');
             $blocks = $this->request('blocks');
             $flat_count = $this->request('flat_count');
-            $address = $this->request('address'); 
+            $adrs = $this->request('adrs'); 
         }
         $data = array(
             "apartment_name" => $apartment_name,
             "blocks" => $blocks,
             "flat_count" => $flat_count,
-            "address" => $address
+            "adrs" => $adrs
         ); 
 
         $this->load->library('form_validation');
@@ -25,7 +25,7 @@ class Apartment extends MY_Controller{
         $this->form_validation->set_rules("apartment_name","Apartment Name","required|trim|min_length[3]|alpha");
         $this->form_validation->set_rules("blocks","No of Blocks","required|trim");
         $this->form_validation->set_rules("flat_count","No of flats available","required|trim");
-        $this->form_validation->set_rules("address","Address","required|trim");
+        $this->form_validation->set_rules("adrs","Address","required|trim");
 
         if($this->form_validation->run() ){
             $this->load->model('ApartmentModel');

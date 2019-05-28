@@ -121,7 +121,7 @@ class Flat extends MY_Controller{
             $member_id=$this->varify();
             $this->load->model('FlatModel');
             $advance_payment=$this->FlatModel->rent_details($flat_id);
-            //var_dump($advance_payment);
+            var_dump($advance_payment);
 
 
             // One month from today
@@ -167,11 +167,9 @@ class Flat extends MY_Controller{
                     echo $this->failure(array("message" =>"Insertion failed..."));
                 }
             }
-<<<<<<< HEAD
-            echo $this->failure(array("message" =>"error..."));
-=======
-            echo $this->failure("Error...");
->>>>>>> sql
+            else{
+                echo $this->failure(array("message" =>"error..."));
+            }
         }
     }
 
